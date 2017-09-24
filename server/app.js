@@ -34,9 +34,7 @@ app.use(parser({ multipart: true }))
 app.use(renderer({
 	paths: {
 		views: path.resolve('client'),
-		layouts: path.resolve('server/templates'),
-		partials: path.resolve('server/templates/partials'),
-		helpers: path.resolve('server/templates/helpers')
+		layouts: path.resolve('server/templates')
 	},
 	defaultLayout: 'layout'
 }))
