@@ -1,0 +1,10 @@
+
+input:focus {
+  outline: none;
+}
+
+.dollar:before {
+	font-size: 1.5rem;
+	vertical-align: top;
+	content: '$';
+}

@@ -1,0 +1,114 @@
+
+<link rel="stylesheet" type="text/css" href="index.css">
+
+<main class="pa4 black-80 avenir mt5">
+  <div class="measure-wide center">
+    <legend class="f1 fw6 ph0 mh0">How much is your Alternative Minimum Tax?</legend>
+    <p class="f4 fw3 lh-copy">
+      If you exercise Incentive Stock Options (“ISOs”), you may be subject to Alternative Minimum Tax (“AMT”). AMT is a parallel tax system imposed on an alternative, more comprehensive measure of income than regular federal income tax with fewer opportunities for deductions. If the calculated “tentative minimum tax” exceeds the regular tax, then the AMT is imposed.
+    </p>
+    <p class="f6 fw3 lh-copy i">
+      Note this site is merely to provide a rough estimate. This is not legal or tax advice. For assistance, please consult a tax lawyer.
+    </p>
+  </div>
+</main>
+
+<main class="pa4 black-80 avenir">
+  <form class="measure-wide center mt5">
+    <p class="f4 fw3 lh-copy">
+      Enter your basic information below to see if you are subject to AMT.
+    </p>
+    <div class="mt4 relative f2">
+      <span class="absolute">Income</span>
+      <input id="income" class="avenir tr input-reset ba b--white bg-transparent w-100" type="text">
+      <div class="db bb b--black w-30 fr"></div>
+    </div>
+    <div class="mt4 relative f2">
+      <span class="absolute"># of ISOs Exercised</span>
+      <input id="isos" class="avenir tr input-reset ba b--white bg-transparent w-100" type="text">
+      <div class="db bb b--black w-30 fr"></div>
+    </div>
+    <div class="mt4 relative f2">
+      <span class="absolute">Strike Price</span>
+      <input id="strike" class="avenir tr input-reset ba b--white bg-transparent w-100" type="text">
+      <div class="db bb b--black w-30 fr"></div>
+    </div>
+    <div class="mt4 relative f2">
+      <span class="absolute">Fair Market Value</span>
+      <input id="fmv" class="avenir tr input-reset ba b--white bg-transparent w-100" type="text"><div class="db bb b--black w-30 fr"></div>
+    </div>
+    <div class="mt4 relative f2">
+      <div class="f4 mb3">Filing Status</div>
+      <a class="link dim ph3 pv2 mb2 dib white bg-black" href="#0">Single</a>
+      <a class="link dim ph3 pv2 mb2 dib white bg-black" href="#0">Married</a>
+      <a class="link dim ph3 pv2 mb2 dib white bg-black" href="#0">Married Filing Separately</a>
+    </div>
+  </form>
+</main>
+
+
+<div class="pa4 black-80 avenir mt5">
+  <div class="measure-wide center">
+    <div class="mt4 relative f2">
+      <span class="">Income</span>
+      <span id="income-output" class="tr fr dollar"></span>
+    </div>
+    <div class="mt4 relative f2 i pb4 bb">
+      <span class="">+ Adjustment</span>
+      <span id="bargainElement" class="tr fr dollar"></span>
+    </div>
+    <div class="mt4 relative f2">
+      <span class="">AMT Income</span>
+      <span id="amti" class="tr fr dollar"></span>
+    </div>
+    <div class="mt4 f2 i pb4 bb">
+      <span>— AMT Exemption</span>
+      <span id="amtexemption" class="tr fr dollar"></span>
+    </div>
+    <div class="mt4 f2">
+      <span>AMT Base</span>
+      <span id="amtbase" class="tr fr dollar"></span>
+    </div>
+    <div class="mt4 f2">
+      <span>Tentative Minimum Tax</span>
+      <span id="amt" class="tr fr dollar"></span>
+    </div>
+    <div class="mt4 relative f2 i pb4 bb">
+      <span>Ordinary Income Tax</span>
+      <span id="ordinaryTax" class="tr fr dollar"></span>
+    </div>
+    <div class="mt4 f2 b">
+      <span>Payable Tax</span>
+      <span id="payable-tax" class="tr fr dollar"></span>
+    </div>
+  </div>
+</div>
+
+<div class="pa4 black-80 avenir mt5">
+  <div class="measure-wide center lh-copy">
+    <h1 class="f1 fw3">Calculating AMT</h1>
+    <p class="f4">
+      We first start with your adjusted gross income. For the purposes of this back-of-the-envelope calculation, we use your annual gross salary. Note that there are many other adjustments that influence this number.
+    </p>
+    <p class="f4">
+      Then, we add adjustments to get to the alternative minimum taxable income (“AMTI”). For this site, we only consider the spread on an ISO exercise. However, there are many other types of deductions subject to AMT.
+    </p>
+    <p class="f4">
+      From AMTI, we less the AMT exemptions to get to the AMT base. The actual exemption amount depends on your filing status. Learn more about calculating AMT exemptions. Here is the table for determining the exemption amounts for 2016.
+    </p>
+    <p class="f4">
+      We calculate the tentative minimum tax by applying the AMT rate (either 26% or 28%, depending on the amount) to the AMT base.
+    </p>
+    <p class="f4">
+      Finally, we compare the tentative minimum tax to your ordinary income tax. Your payable tax will be the greater of either the tentative minimum tax or the ordinary income tax.
+    </p>
+    <div class="mt4">
+      <h1 class="f2">Additional Reading</h1>
+        - http://amtadvisor.com/AMT_Exemption.html
+        - https://www.nceo.org/articles/stock-options-alternative-minimum-tax-amt
+        - http://thismatter.com/money/tax/alternative-minimum-tax.htm
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="index.js"></script>

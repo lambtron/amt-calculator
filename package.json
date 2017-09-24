@@ -1,0 +1,33 @@
+{
+  "name": "amt-iso-calculator",
+  "description": "How much are you gonna owe?",
+  "version": "0.0.1",
+  "author": "Andy Jiang",
+  "main": "server/app",
+  "scripts": {
+    "start": "NODE_ENV='production' node server/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lambtron/amt-iso-calculator.git"
+  },
+  "engines": {
+    "node": "^8.3.0",
+    "npm": "^5.3.0"
+  },
+  "private": true,
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-hbs-renderer": "^1.1.0",
+    "koa-respond": "^1.0.1",
+    "koa-router": "^7.2.1",
+    "koa-static": "^4.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/lambtron/amt-iso-calculator/issues"
+  },
+  "homepage": "https://github.com/lambtron/amt-iso-calculator#readme",
+  "license": "ISC"
+}
