@@ -21,13 +21,10 @@ node_modules: package.json
 clean:
 	rm -rf node_modules
 
-# Run production server.
-server: 
-	@npm start
-
-# Run development server. REQUIRES NODEMON.
-dev:
-	NODE_ENV='development' nodemon -e '*.js|*.hbs' server/app.js 
+# Server.
+server:
+	python -m SimpleHTTPServer \
+  `open "http://localhost:8000/docs"`
 
 #
 # Phonies.
@@ -36,4 +33,3 @@ dev:
 .PHONY: install
 .PHONY: clean
 .PHONY: server
-.PHONY: dev
