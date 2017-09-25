@@ -89,7 +89,8 @@
 	function calculateAmt() {
 		var ex = exemption[filingStatus];
 		if (num(amtbase) > ex.break) return ex.break * 0.26 + (num(amtbase) - ex.break) * 0.28;
-		return num(amtbase) * 0.26
+		if (isNaN(amtbase)) amtbase = 0;
+		return num(amtbase) * 0.26;
 	}
 
 	// Calculate ordinary tax.
@@ -118,6 +119,22 @@
 		return tax;
 	}
 
+	// Set the filing status.
+	document.querySelectorAll('a.filing-status').forEach(function(el) {
+		el.addEventListener('click', function(e) {
+			var arr = document.querySelectorAll('a.filing-status');
+			var status = e.target.id;
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i].id !== status) removeClass(arr[i], 'active')
+				else {
+					addClass(arr[i], 'active');
+					filingStatus = status;
+				}
+			}
+			calculate();
+			updateHtml();
+		})
+	})
 
 	// Calculate everything.
 	function calculate() {
@@ -128,6 +145,8 @@
 		amt = calculateAmt();
 		ordinaryTax = calculateOrdinaryTax();
 		payableTax = Math.max(num(amt), num(ordinaryTax))
+		console.log('amt is %s and ordinary is %s', num(amt), ordinaryTax)
+		console.log(payableTax, typeof payableTax)
 	}
 
 	// Collect inputs.
@@ -172,16 +191,33 @@
 	  _number = typeof _number != "undefined" && _number > 0 ? _number : "";
 	  _number = '' + Math.round(_number);
 	  _number = _number.replace(new RegExp("^(\\d{" + (_number.length%3? _number.length%3:0) + "})(\\d{3})", "g"), "$1 $2").replace(/(\d{3})+?/gi, "$1 ").trim();
-	  if(typeof _sep != "undefined" && _sep != " ") _number = _number.replace(/\s/g, _sep);
+	  if (typeof _sep != "undefined" && _sep != " ") _number = _number.replace(/\s/g, _sep);
 	  return _number;
 	}
 
 	// Turn string to number.
 	function num(string) {
-		if (typeof string === 'undefined') return 0
-		if (typeof string === 'number') return string
+		if (typeof string === 'undefined') return 0;
+		if (typeof string === 'number') return string;
 		string = string.replace(/\,/g,'');
 		return parseInt(string, 10);
+	}
+
+	/**
+	 * Add class once.
+	 */
+
+	function addClass(el, c) {
+		if (el.classList.contains(c)) return;
+		return el.classList.add(c);
+	}
+
+	/**
+	 * Remove class once.
+	 */
+	
+	function removeClass(el, c) {
+		if (el.classList.contains(c)) return el.classList.remove(c);
 	}
 
 })()

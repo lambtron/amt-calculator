@@ -8,3 +8,7 @@ input:focus {
 	vertical-align: top;
 	content: '$';
 }
+
+a.active {
+	opacity: .5;
+}

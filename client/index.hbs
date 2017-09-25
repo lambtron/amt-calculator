@@ -5,10 +5,10 @@
   <div class="measure-wide center">
     <legend class="f1 fw6 ph0 mh0">How much is your Alternative Minimum Tax?</legend>
     <p class="f4 fw3 lh-copy">
-      If you exercise Incentive Stock Options (“ISOs”), you may be subject to Alternative Minimum Tax (“AMT”). AMT is a parallel tax system imposed on an alternative, more comprehensive measure of income than regular federal income tax with fewer opportunities for deductions. If the calculated “tentative minimum tax” exceeds the regular tax, then the AMT is imposed.
+      If you exercise Incentive Stock Options (“ISOs”), you may be subject to Alternative Minimum Tax (“AMT”). AMT is a parallel tax system imposed on an alternative, more comprehensive measure of income, which includes the unrealized gains of ISO value, with fewer opportunities for deductions. If the calculated AMT exceeds the ordinary income tax, then the AMT amount is used.
     </p>
     <p class="f6 fw3 lh-copy i">
-      Note this site is merely to provide a rough estimate. This is not legal or tax advice. For assistance, please consult a tax lawyer.
+      Note that this is an oversimplified estimate that focuses exclusively on ISOs and their impact on AMT. This is not legal or tax advice. For assistance with your specific situation, please consult a tax lawyer.
     </p>
   </div>
 </main>
@@ -39,9 +39,9 @@
     </div>
     <div class="mt4 relative f2">
       <div class="f4 mb3">Filing Status</div>
-      <a class="link dim ph3 pv2 mb2 dib white bg-black" href="#0">Single</a>
-      <a class="link dim ph3 pv2 mb2 dib white bg-black" href="#0">Married</a>
-      <a class="link dim ph3 pv2 mb2 dib white bg-black" href="#0">Married Filing Separately</a>
+      <a id="single" class="filing-status link dim active ph3 pv2 mb2 dib white bg-black" href="#0">Single</a>
+      <a id="married" class="filing-status link dim ph3 pv2 mb2 dib white bg-black" href="#0">Married</a>
+      <a id="mfs" class="filing-status link dim ph3 pv2 mb2 dib white bg-black" href="#0">Married Filing Separately</a>
     </div>
   </form>
 </main>
@@ -77,7 +77,7 @@
       <span>Ordinary Income Tax</span>
       <span id="ordinaryTax" class="tr fr dollar"></span>
     </div>
-    <div class="mt4 f2 b">
+    <div class="mt4 f2 b red">
       <span>Payable Tax</span>
       <span id="payable-tax" class="tr fr dollar"></span>
     </div>
@@ -88,25 +88,61 @@
   <div class="measure-wide center lh-copy">
     <h1 class="f1 fw3">Calculating AMT</h1>
     <p class="f4">
-      We first start with your adjusted gross income. For the purposes of this back-of-the-envelope calculation, we use your annual gross salary. Note that there are many other adjustments that influence this number.
+      We first start with the adjusted gross income. For the purposes of this back-of-the-envelope estimation, we use the annual gross salary. However, there are many other adjustments that influence this number. Learn more about <a href="http://www.investopedia.com/financial-edge/0312/how-to-calculate-agi-for-tax-purposes.aspx" class="link blue hover-bg-light-gray" target="_blank">determining the adjusted gross income.</a>
     </p>
     <p class="f4">
-      Then, we add adjustments to get to the alternative minimum taxable income (“AMTI”). For this site, we only consider the spread on an ISO exercise. However, there are many other types of deductions subject to AMT.
+      To get to the alternative minimum taxable income (“AMTI”), there are many income adjustments applied to the adjusted gross income. This site only considers the value of ISOs when exercised (the fair market value less the strike price). However, <a href="https://turbotax.intuit.com/tax-tools/tax-tips/IRS-Tax-Return/Alternative-Minimum-Tax--Common-Questions/INF12072.html" class="link blue hover-bg-light-gray" target="_blank">there are many other types of deductions subject to AMT.</a>
     </p>
     <p class="f4">
-      From AMTI, we less the AMT exemptions to get to the AMT base. The actual exemption amount depends on your filing status. Learn more about calculating AMT exemptions. Here is the table for determining the exemption amounts for 2016.
+      To calculate the AMT base, we take AMTI and less the AMT exemptions. The actual exemption amount depends on the filing status and total AMTI. Here is the table for determining the exemption amounts for 2016.
+    </p>
+<pre>
+| Filing Status             | Amount | Phase Out |
+| ------------------------- | ------ | --------- |
+| Single                    | 53,900 | 119,700   |
+| Married                   | 83,800 | 159,700   |
+| Married Filing Separately | 41,900 | 79,850    |
+</pre>
+    <p class="f4">
+      To prevent upper-income taxpayers from benefiting from the exemption, it “phases out” as AMTI increases. For every $1 beyond the phase out amount, the exemption amount is reduced by $0.25. For example, a single person who has AMTI of $150,000 will only have 53,900 – ((150,000 – 119,700) x 0.25) = 23,600 of exemptions. <a href="http://amtadvisor.com/AMT_Exemption.html" class="link blue hover-bg-light-gray" target="_blank">Learn more about calculating AMT exemptions.</a> 
     </p>
     <p class="f4">
-      We calculate the tentative minimum tax by applying the AMT rate (either 26% or 28%, depending on the amount) to the AMT base.
+      We calculate the tentative minimum tax by applying the AMT rate (either 26% or 28%, depending on the amount) to the AMT base. For 2016, the threshold where the 26 percent AMT tax bracket ends and the 28 percent AMT tax bracket begins is $93,150 for married filing separately and $186,300 for all other filing statuses
     </p>
     <p class="f4">
-      Finally, we compare the tentative minimum tax to your ordinary income tax. Your payable tax will be the greater of either the tentative minimum tax or the ordinary income tax.
+      Finally, we compare the tentative minimum tax to the ordinary income tax. Ordinary income tax is calculated based on a varying rates associated with the income, as well as the filing status (the table for 2016 is below). The ultimate <b>payable tax</b> will be the greater of either the tentative minimum tax or the ordinary income tax.
     </p>
-    <div class="mt4">
-      <h1 class="f2">Additional Reading</h1>
-        - http://amtadvisor.com/AMT_Exemption.html
-        - https://www.nceo.org/articles/stock-options-alternative-minimum-tax-amt
-        - http://thismatter.com/money/tax/alternative-minimum-tax.htm
+    <p class="f4">
+      Here is the table for ordinary income tax brackets.
+    </p>
+<pre>
+| Rate  | Single  | Married | Married, Filing Separately |
+| ----- | ------- | ------- | -------------------------- |
+| 10%   | 0       | 0       | 0                          |
+| 15%   | 9,275   | 13,250  | 9,275                      |
+| 25%   | 37,650  | 50,400  | 37,650                     |
+| 28%   | 91,150  | 130,150 | 75,950                     |
+| 33%   | 190,150 | 210,800 | 115,725                    |
+| 35%   | 413,350 | 413,350 | 206,675                    |
+| 39.6% | 415,050 | 441,000 | 233,475                    |
+</pre>
+    <p class="f4">
+      The rate on the left applies to income from that row to the one beneath it. For instance, a single person with $150,000 in income will pay 10% on the first $9,275, 15% on the next $28,375, 25% on the next $53,500, and 28% on the remaining $58,850.
+    </p>    
+    <div class="mt4 mb6">
+      <h1 class="f3 fw3">Additional Reading</h1>
+      <p class="lh-copy">
+        <ul class="pl0 list">
+          <li><a href="https://www.forbes.com/sites/kellyphillipserb/2017/03/15/what-exactly-is-the-alternative-minimum-tax-amt/#76c9856d3dc9" class="link blue hover-bg-light-gray" target="_blank">What Exactly Is The Alternative Minimum Tax (AMT)? (Forbes)</a></li>
+          <li><a href="http://thismatter.com/money/tax/alternative-minimum-tax.htm" class="link blue hover-bg-light-gray" target="_blank">Alternative Minimum Tax (AMT) for Individuals (This Matter)</a></li>
+          <li><a href="https://www.nerdwallet.com/blog/taxes/alternative-minimum-tax-amt/" class="link blue hover-bg-light-gray" target="_blank">How Does the Alternative Minimum Tax Work? (Nerdwallet)</a></li>
+          <li><a href="https://turbotax.intuit.com/tax-tools/tax-tips/IRS-Tax-Return/Alternative-Minimum-Tax--Common-Questions/INF12072.html" class="link blue hover-bg-light-gray" target="_blank">Alternative Minimum Tax: Common Questions (Turbotax)</a></li>
+          <li><a href="https://www.nceo.org/articles/stock-options-alternative-minimum-tax-amt" class="link blue hover-bg-light-gray" target="_blank">Stock Options and the Alternative Minimum Tax (AMT) (NCEO)</a></li>
+          <li><a href="http://money.cnn.com/tmp/networth2.html" class="link blue hover-bg-light-gray" target="_blank">What’s your AGI? (CNN Money)</a></li>
+          <li><a href="http://www.investopedia.com/financial-edge/0312/how-to-calculate-agi-for-tax-purposes.aspx" class="link blue hover-bg-light-gray" target="_blank">How To Calculate AGI For Tax Purposes (Investopedia)</a></li>
+          <li><a href="http://amtadvisor.com/AMT_Exemption.html" class="link blue hover-bg-light-gray" target="_blank">The AMT Exemption (AMT Advisor)</a></li>
+          <li><a href="https://www.thebalance.com/federal-income-tax-rates-for-the-year-2016-3193200" class="link blue hover-bg-light-gray" target="_blank">Federal Income Tax Rates for the Year 2016 (The Balance)</a></li>
+      </p>
     </div>
   </div>
 </div>
