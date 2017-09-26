@@ -159,8 +159,8 @@
 	function formatInputs() {
 		document.getElementById('income').value = document.getElementById('income').value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		document.getElementById('isos').value = document.getElementById('isos').value.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		document.getElementById('strike').value = document.getElementById('strike').value.replace(/\D\./g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		document.getElementById('fmv').value = document.getElementById('fmv').value.replace(/\D\./g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		document.getElementById('strike').value = document.getElementById('strike').value.replace(/\D\./g, "");
+		document.getElementById('fmv').value = document.getElementById('fmv').value.replace(/\D\./g, "");
 	}
 
 	// Send outputs to HTML elements.
@@ -198,7 +198,7 @@
 		if (typeof string === 'undefined') return 0;
 		if (typeof string === 'number') return string;
 		string = string.replace(/\,/g,'');
-		return parseInt(string, 10);
+		return parseFloat(string, 10);
 	}
 
 	/**
