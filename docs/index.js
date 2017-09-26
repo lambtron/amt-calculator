@@ -145,8 +145,6 @@
 		amt = calculateAmt();
 		ordinaryTax = calculateOrdinaryTax();
 		payableTax = Math.max(num(amt), num(ordinaryTax))
-		console.log('amt is %s and ordinary is %s', num(amt), ordinaryTax)
-		console.log(payableTax, typeof payableTax)
 	}
 
 	// Collect inputs.

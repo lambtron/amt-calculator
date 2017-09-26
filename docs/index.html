@@ -34,7 +34,7 @@
     <div class="measure-wide center">
       <legend class="f1 fw6 ph0 mh0">How much is your Alternative Minimum Tax?</legend>
       <p class="f4 fw3 lh-copy">
-        If you exercise Incentive Stock Options ("ISOs"), you may be subject to Alternative Minimum Tax ("AMT"). AMT is a parallel tax system imposed on an alternative, more comprehensive measure of income, which includes the unrealized gains of ISO value, with fewer opportunities for deductions. If the calculated AMT exceeds the ordinary income tax, then the AMT amount is used.
+        If you exercise Incentive Stock Options (“ISOs”), you may be subject to Alternative Minimum Tax (“AMT”). AMT is a parallel tax system imposed on an alternative, more comprehensive measure of income, which includes the unrealized gains of ISO value, with fewer opportunities for deductions. If the calculated AMT exceeds the ordinary income tax, then the AMT amount is used.
       </p>
       <p class="f6 fw3 lh-copy i">
         Note that this is an oversimplified estimate that focuses exclusively on ISOs and their impact on AMT. This is not legal or tax advice. For assistance with your specific situation, please consult a tax lawyer.
@@ -49,22 +49,23 @@
       </p>
       <div class="mt4 relative f3 f2-ns">
         <span class="absolute">Income</span>
-        <input id="income" class="avenir tr input-reset ba b--white bg-transparent w-100" type="text">
-        <div class="db bb b--black w-30 fr"></div>
+        <span class="f5 f3-ns fr tr w-100">$<input id="income" class="f3 f2-ns avenir tr underlined dollar input-reset bg-transparent w-30 fr" type="text" placeholder="130,000"></span>
+        <div class="cf"></div>
       </div>
       <div class="mt4 relative f3 f2-ns">
         <span class="absolute"># of ISOs Exercised</span>
-        <input id="isos" class="avenir tr input-reset ba b--white bg-transparent w-100" type="text">
-        <div class="db bb b--black w-30 fr"></div>
+        <input id="isos" class="avenir tr underlined input-reset bg-transparent w-30 fr" type="text" placeholder="10,000">
+        <div class="cf"></div>
       </div>
       <div class="mt4 relative f3 f2-ns">
         <span class="absolute">Strike Price</span>
-        <input id="strike" class="avenir tr input-reset ba b--white bg-transparent w-100" type="text">
-        <div class="db bb b--black w-30 fr"></div>
+        <span class="f5 f3-ns fr tr w-100">$<input id="strike" class="f3 f2-ns avenir tr underlined dollar input-reset bg-transparent w-30 fr" type="text" placeholder="2.5"></span>
+        <div class="cf"></div>
       </div>
       <div class="mt4 relative f3 f2-ns">
         <span class="absolute">Fair Market Value</span>
-        <input id="fmv" class="avenir tr input-reset ba b--white bg-transparent w-100" type="text"><div class="db bb b--black w-30 fr"></div>
+        <span class="f5 f3-ns fr tr w-100">$<input id="fmv" class="f3 f2-ns avenir tr underlined dollar input-reset bg-transparent w-30 fr" type="text" placeholder="16"></span>
+        <div class="cf"></div>
       </div>
       <div class="mt4 relative f3 f2-ns">
         <div class="f4 mb3">Filing Status</div>
@@ -120,7 +121,7 @@
         We first start with the adjusted gross income. For the purposes of this back-of-the-envelope estimation, we use the annual gross salary. However, there are many other adjustments that influence this number. Learn more about <a href="http://www.investopedia.com/financial-edge/0312/how-to-calculate-agi-for-tax-purposes.aspx" class="link blue hover-bg-light-gray" target="_blank">determining the adjusted gross income.</a>
       </p>
       <p class="f4">
-        To get to the alternative minimum taxable income ("AMTI"), there are many income adjustments applied to the adjusted gross income. This site only considers the value of ISOs when exercised (the fair market value less the strike price). However, <a href="https://turbotax.intuit.com/tax-tools/tax-tips/IRS-Tax-Return/Alternative-Minimum-Tax--Common-Questions/INF12072.html" class="link blue hover-bg-light-gray" target="_blank">there are many other types of deductions subject to AMT.</a>
+        To get to the alternative minimum taxable income (“AMTI”), there are many income adjustments applied to the adjusted gross income. This site only considers the value of ISOs when exercised (the fair market value less the strike price). However, <a href="https://turbotax.intuit.com/tax-tools/tax-tips/IRS-Tax-Return/Alternative-Minimum-Tax--Common-Questions/INF12072.html" class="link blue hover-bg-light-gray" target="_blank">there are many other types of deductions subject to AMT.</a>
       </p>
       <p class="f4">
         To calculate the AMT base, we take AMTI and less the AMT exemptions. The actual exemption amount depends on the filing status and total AMTI. Here is the table for determining the exemption amounts for 2016:
@@ -170,7 +171,7 @@
         </div>
       </div>
       <p class="f4">
-        To prevent upper-income taxpayers from benefiting from the exemption, it "phases out" as AMTI increases. For every $1 beyond the phase out amount, the exemption amount is reduced by $0.25. For example, a single person who has AMTI of $150,000 will only have 53,900 – ((150,000 – 119,700) x 0.25) = 23,600 of exemptions. <a href="http://amtadvisor.com/AMT_Exemption.html" class="link blue hover-bg-light-gray" target="_blank">Learn more about calculating AMT exemptions.</a> 
+        To prevent upper-income taxpayers from benefiting from the exemption, it “phases out” as AMTI increases. For every $1 beyond the phase out amount, the exemption amount is reduced by $0.25. For example, a single person who has AMTI of $150,000 will only have 53,900 – ((150,000 – 119,700) x 0.25) = 23,600 of exemptions. <a href="http://amtadvisor.com/AMT_Exemption.html" class="link blue hover-bg-light-gray" target="_blank">Learn more about calculating AMT exemptions.</a> 
       </p>
       <p class="f4">
         We calculate the tentative minimum tax by applying the AMT rate (either 26% or 28%, depending on the amount) to the AMT base. For 2016, the threshold where the 26 percent AMT tax bracket ends and the 28 percent AMT tax bracket begins is $93,150 for married filing separately and $186,300 for all other filing statuses

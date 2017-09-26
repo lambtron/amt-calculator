@@ -1,4 +1,9 @@
 
+input.underlined {
+	border: 0px;
+	border-bottom: 1px solid black;
+}
+
 input:focus {
   outline: none;
 }
@@ -11,4 +16,18 @@ input:focus {
 
 a.active {
 	opacity: .5;
+}
+
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #A8A8A8;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #A8A8A8;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #A8A8A8;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #A8A8A8;
 }
