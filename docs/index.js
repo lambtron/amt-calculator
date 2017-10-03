@@ -5,10 +5,11 @@
 
 	// Inputs.
 	var income = 0;
-	var isos = 0;
+	// var isos = 0;
 	var strike = 0;
 	var fmv = 0;
 	var filingStatus = 'single';
+	var maxISOs = 0;
 
 	// Outputs
 	var bargainElement = 0;
@@ -70,23 +71,24 @@
 
 	// Calculate bargain element.
 	// (fmv - strike price) * ISOs exercised
-	function calculateBargainElement() {
+	// We pass `isos` into the function to allow for newton's method
+	function calculateBargainElement(isos) {
 		return (num(fmv) - num(strike)) * num(isos);
 	}
 
 	// Calculate amt exemption.
-	function calculateAmtExemption() {
+	function calculateAmtExemption(amti) {
 		var ex = exemption[filingStatus];
-		var amount = ex.amount
+		var amount = ex.amount;
 		var deduct = 0;
-		if (num(income) > ex.phaseout) deduct += (num(income) - ex.phaseout) * 0.25;
+		if (num(amti) > ex.phaseout) deduct += (num(amti) - ex.phaseout) * 0.25;
 		amount -= deduct;
 		if (amount > 0) return amount;
 		return 0;
 	}
 
 	// Calculate amt.
-	function calculateAmt() {
+	function calculateAmt(amtbase) {
 		var ex = exemption[filingStatus];
 		if (num(amtbase) > ex.break) return ex.break * 0.26 + (num(amtbase) - ex.break) * 0.28;
 		if (isNaN(amtbase)) amtbase = 0;
@@ -137,12 +139,12 @@
 	})
 
 	// Calculate everything.
-	function calculate() {
-		bargainElement = calculateBargainElement();
+	function calculate(isos) {
+		bargainElement = calculateBargainElement(isos);
 		amti = num(income) + num(bargainElement);
-		amtexemption = calculateAmtExemption();
+		amtexemption = calculateAmtExemption(num(amti));
 		amtbase = num(amti) - num(amtexemption);
-		amt = calculateAmt();
+		amt = calculateAmt(num(amtbase));
 		ordinaryTax = calculateOrdinaryTax();
 		payableTax = Math.max(num(amt), num(ordinaryTax))
 	}
@@ -151,7 +153,7 @@
 	function getInputs() {
 		income = document.getElementById('income').value
 		strike = document.getElementById('strike').value
-		isos = document.getElementById('isos').value
+		// isos = document.getElementById('isos').value
 		fmv = document.getElementById('fmv').value
 	}
 
@@ -173,13 +175,21 @@
 		document.getElementById('ordinaryTax').innerText = numberFormat(ordinaryTax, ','); 
 		document.getElementById('income-output').innerText = document.getElementById('income').value;
 		document.getElementById('payable-tax').innerText = numberFormat(payableTax, ',');
+		if (amt > ordinaryTax) {
+			removeClass(document.getElementById('max-isos-wrapper'), 'dn');
+			document.getElementById('max-isos').innerText = numberFormat(maxISOs, ',');
+		} else {
+			addClass(document.getElementById('max-isos-wrapper'), 'dn');
+		}
 	}
 
 	// Whenever user key ups on the form.
 	document.querySelector('form').addEventListener('keyup', function(e) {
 		getInputs();
 		formatInputs();
-		calculate();
+		var isos = document.getElementById('isos').value;
+		calculate(isos);
+		maxISOs = findISOs(isos);
 		updateHtml();
 	})
 
@@ -199,6 +209,48 @@
 		if (typeof string === 'number') return string;
 		string = string.replace(/\,/g,'');
 		return parseFloat(string, 10);
+	}
+
+	/**
+	 * Netown's method to approximate ISO shares where Ordinary Tax equals AMT
+	 */
+
+	function findISOs(isos) {
+		var tempMaxISOs = num(isos);
+		var discrepancy = amt - ordinaryTax;
+
+		var counter = 0;
+
+		var upper = num(isos);
+		var lower = 0;
+
+		// Iterate until discrepancy is less than 100.
+		while (Math.abs(discrepancy) > 10) {
+			// Not the most intelligent routing of seeding ISOs.
+			if (discrepancy > 0) {
+				upper = tempMaxISOs;
+				tempMaxISOs = (upper + lower) / 2;
+			}
+			if (discrepancy < 0) {
+				lower = tempMaxISOs;
+				tempMaxISOs = (upper + lower) / 2;
+			}
+
+			var bargainElement = calculateBargainElement(tempMaxISOs);
+			var amti = num(income) + num(bargainElement);
+			var amtexemption = calculateAmtExemption(num(amti));
+			var amtbase = num(amti) - num(amtexemption);
+			var newAmt = calculateAmt(num(amtbase));
+
+			discrepancy = newAmt - ordinaryTax;
+
+			// console.log('counter %d, discrepancy %d, isos %d', counter, discrepancy, tempMaxISOs)
+
+			counter++;
+			if (counter > 100) break;
+		}
+
+		return tempMaxISOs;
 	}
 
 	/**
