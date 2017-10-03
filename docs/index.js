@@ -244,7 +244,7 @@
 
 			discrepancy = newAmt - ordinaryTax;
 
-			console.log('counter %d, discrepancy %d, isos %d', counter, discrepancy, tempMaxISOs)
+			// console.log('counter %d, discrepancy %d, isos %d', counter, discrepancy, tempMaxISOs)
 
 			counter++;
 			if (counter > 100) break;
