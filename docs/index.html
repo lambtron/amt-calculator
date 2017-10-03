@@ -120,7 +120,7 @@
             <div class="f5 i normal light-silver">(Greater of tentative minimum tax or ordinary income tax)</div>
           </div>
           <div id="max-isos-wrapper" class="mt4 f3 f2-ns dn">
-            <span class="w-70 dib">Max # of ISOs to not trigger AMT</span>
+            <span class="w-70 dib">Max # of ISOs to avoid AMT</span>
             <span id="max-isos" class="tr fr"></span>
           </div>
         </div>
@@ -131,7 +131,7 @@
             We first start with the adjusted gross income. For the purposes of this back-of-the-envelope estimation, we use the annual gross salary. However, there are many other adjustments that influence this number. Learn more about <a href="http://www.investopedia.com/financial-edge/0312/how-to-calculate-agi-for-tax-purposes.aspx" class="link blue hover-bg-light-gray" target="_blank">determining the adjusted gross income.</a>
           </p>
           <p class="f4">
-            To get to the alternative minimum taxable income (“AMTI”), there are many income adjustments applied to the adjusted gross income. This site only considers the value of ISOs when exercised (the fair market value less the strike price). However, <a href="https://turbotax.intuit.com/tax-tools/tax-tips/IRS-Tax-Return/Alternative-Minimum-Tax--Common-Questions/INF12072.html" class="link blue hover-bg-light-gray" target="_blank">there are many other types of deductions subject to AMT.</a>
+            To get to the alternative minimum taxable income (“AMTI”), there are many income adjustments applied to the adjusted gross income. This site only considers the value of ISOs when exercised (the most recent <a href="https://www.quora.com/What-is-a-409A-valuation" target="_blank" class="link blue hover-bg-light-gray">409A appraisal of the stock</a> less the strike price). However, <a href="https://turbotax.intuit.com/tax-tools/tax-tips/IRS-Tax-Return/Alternative-Minimum-Tax--Common-Questions/INF12072.html" class="link blue hover-bg-light-gray" target="_blank">there are many other types of deductions subject to AMT.</a>
           </p>
           <p class="f4">
             To calculate the AMT base, we take AMTI and less the AMT exemptions. The actual exemption amount depends on the filing status and total AMTI. Here is the table for determining the exemption amounts for 2016:
@@ -184,8 +184,40 @@
             To prevent upper-income taxpayers from benefiting from the exemption, it “phases out” as AMTI increases. For every $1 beyond the phase out amount, the exemption amount is reduced by $0.25. For example, a single person who has AMTI of $150,000 will only have 53,900 – ((150,000 – 119,700) x 0.25) = 23,600 of exemptions. <a href="http://amtadvisor.com/AMT_Exemption.html" class="link blue hover-bg-light-gray" target="_blank">Learn more about calculating AMT exemptions.</a> 
           </p>
           <p class="f4">
-            We calculate the tentative minimum tax by applying the AMT rate (either 26% or 28%, depending on the amount) to the AMT base. For 2016, the threshold where the 26 percent AMT tax bracket ends and the 28 percent AMT tax bracket begins is $93,150 for married filing separately and $186,300 for all other filing statuses
+            We calculate the tentative minimum tax by applying the AMT rate (either 26% or 28%, depending on the amount) to the AMT base. For 2016, the threshold where the 26 percent AMT tax bracket ends and the 28 percent AMT tax bracket begins is $93,150 for married filing separately and $186,300 for all other filing statuses.
           </p>
+          <div class="cf w-100 bb">
+            <div class="fl w-50 pa2">
+              Filing Status
+            </div>
+            <div class="fl w-50 pa2">
+              26%, 28% Threshold
+            </div>
+          </div>
+          <div class="cf w-100">
+            <div class="fl w-50 pa2">
+              Single
+            </div>
+            <div class="fl w-50 pa2">
+              186,300
+            </div>
+          </div>
+          <div class="cf w-100">
+            <div class="fl w-50 pa2">
+              Married
+            </div>
+            <div class="fl w-50 pa2">
+              93,150
+            </div>
+          </div>
+          <div class="cf w-100">
+            <div class="fl w-50 pa2">
+              Married, Filing Separately
+            </div>
+            <div class="fl w-50 pa2">
+              186,300
+            </div>
+          </div>
           <p class="f4">
             Finally, we compare the tentative minimum tax to the ordinary income tax. Ordinary income tax is calculated based on a varying rates associated with the income, as well as the filing status (the table for 2016 is below). The ultimate <b>payable tax</b> will be the greater of either the tentative minimum tax or the ordinary income tax.
           </p>
@@ -306,7 +338,7 @@
           </div>
           <p class="f4">
             The rate on the left applies to income from that row to the one beneath it. For instance, a single person with $150,000 in income will pay 10% on the first $9,275, 15% on the next $28,375, 25% on the next $53,500, and 28% on the remaining $58,850.
-          </p>    
+          </p>  
           <div class="mt4 mb6">
             <h1 class="f3 fw3">Additional Reading</h1>
             <p class="lh-copy">
@@ -318,8 +350,11 @@
                 <li><a href="https://www.nceo.org/articles/stock-options-alternative-minimum-tax-amt" class="link blue hover-bg-light-gray" target="_blank">Stock Options and the Alternative Minimum Tax (AMT) (NCEO)</a></li>
                 <li><a href="http://money.cnn.com/tmp/networth2.html" class="link blue hover-bg-light-gray" target="_blank">What’s your AGI? (CNN Money)</a></li>
                 <li><a href="http://www.investopedia.com/financial-edge/0312/how-to-calculate-agi-for-tax-purposes.aspx" class="link blue hover-bg-light-gray" target="_blank">How To Calculate AGI For Tax Purposes (Investopedia)</a></li>
+                <li><a href="https://www.quora.com/What-is-a-409A-valuation" target="_blank" class="link blue hover-bg-light-gray">What is a 409A valuation? (Quora)</a></li>
                 <li><a href="http://amtadvisor.com/AMT_Exemption.html" class="link blue hover-bg-light-gray" target="_blank">The AMT Exemption (AMT Advisor)</a></li>
                 <li><a href="https://www.thebalance.com/federal-income-tax-rates-for-the-year-2016-3193200" class="link blue hover-bg-light-gray" target="_blank">Federal Income Tax Rates for the Year 2016 (The Balance)</a></li>
+                <li><a href="https://www.kitces.com/blog/evaluating-exposure-to-the-alternative-minimum-tax-and-strategies-to-reduce-the-amt-bite/" class="link blue hover-bg-light-gray" target="_blank">Evaluating Exposure To The Alternative Minimum Tax And Strategies To Reduce The AMT Bite (Kitces)</a></li>
+              </ul>
             </p>
           </div>
         </div>
