@@ -14,18 +14,18 @@ To get to the alternative minimum taxable income ("AMTI"), there are many income
 To calculate the AMT base, we take AMTI and less the AMT exemptions. The actual exemption amount depends on the filing status and total AMTI. Here is the table for determining the exemption amounts for 2016.
 
 ```
-  | Filing Status             | Amount | Phase Out |
-  | ------------------------- | ------ | --------- |
-  | Single                    | 53,900 | 119,700   |
-  | Married                   | 83,800 | 159,700   |
-  | Married Filing Separately | 41,900 | 79,850    |
+  | Filing Status             | Amount  | Phase Out |
+  | ------------------------- | ------- | --------- |
+  | Single                    | 70,300  | 500,000   |
+  | Married                   | 109,400 | 1,000,000 |
+  | Married Filing Separately | 54,700  | 500,00    |
 ```
 
-To prevent upper-income taxpayers from benefiting from the exemption, it "phases out" as AMTI increases. For every $1 beyond the phase out amount, the exemption amount is reduced by $0.25. For example, a single person who has AMTI of $150,000 will only have 53,900 – ((150,000 – 119,700) x 0.25) = 23,600 of exemptions. [Learn more about calculating AMT exemptions](http://amtadvisor.com/AMT_Exemption.html).
+To prevent upper-income taxpayers from benefiting from the exemption, it "phases out" as AMTI increases. For every $1 beyond the phase out amount, the exemption amount is reduced by $0.25. For example, a single person who has AMTI of $525,000 will only have 70,300 – ((525,000 – 500,000) x 0.25) = 64,050 of exemptions. [Learn more about calculating AMT exemptions](http://amtadvisor.com/AMT_Exemption.html).
 
-We calculate the tentative minimum tax by applying the AMT rate (either 26% or 28%, depending on the amount) to the AMT base. For 2016, the threshold where the 26 percent AMT tax bracket ends and the 28 percent AMT tax bracket begins is $93,150 for married filing separately and $186,300 for all other filing statuses
+We calculate the tentative minimum tax by applying the AMT rate (either 26% or 28%, depending on the amount) to the AMT base. For 2018, the threshold where the 26 percent AMT tax bracket ends and the 28 percent AMT tax bracket begins is $191,500 for married filing jointly and $95,750 for all other individuals. 
 
-Finally, we compare the tentative minimum tax to the ordinary income tax. Ordinary income tax is calculated based on a varying rates associated with the income, as well as the filing status (the table for 2016 is below). The ultimate payable tax will be the greater of either the tentative minimum tax or the ordinary income tax.
+Finally, we compare the tentative minimum tax to the ordinary income tax. Ordinary income tax is calculated based on a varying rates associated with the income, as well as the filing status (the table for 2018 is below). The ultimate payable tax will be the greater of either the tentative minimum tax or the ordinary income tax.
 
 Here is the table for ordinary income tax brackets.
 
@@ -33,15 +33,15 @@ Here is the table for ordinary income tax brackets.
   | Rate  | Single  | Married | Married, Filing Separately |
   | ----- | ------- | ------- | -------------------------- |
   | 10%   | 0       | 0       | 0                          |
-  | 15%   | 9,275   | 13,250  | 9,275                      |
-  | 25%   | 37,650  | 50,400  | 37,650                     |
-  | 28%   | 91,150  | 130,150 | 75,950                     |
-  | 33%   | 190,150 | 210,800 | 115,725                    |
-  | 35%   | 413,350 | 413,350 | 206,675                    |
-  | 39.6% | 415,050 | 441,000 | 233,475                    |
+  | 12%   | 9,525   | 19,050  | 9,525                      |
+  | 22%   | 38,700  | 77,400  | 38,700                     |
+  | 24%   | 82,500  | 165,000 | 82,500                     |
+  | 32%   | 157,500 | 315,000 | 157,500                    |
+  | 35%   | 200,000 | 400,000 | 200,000                    |
+  | 37%   | 500,000 | 600,000 | 300,000                    |
 ```
 
-The rate on the left applies to income from that row to the one beneath it. For instance, a single person with $150,000 in income will pay 10% on the first $9,275, 15% on the next $28,375, 25% on the next $53,500, and 28% on the remaining $58,850.
+The rate on the left applies to income from that row to the one beneath it. For instance, a single person with $150,000 in income will pay 10% on the first $9,525, 12% on the next $29,175, 22% on the next $43,800, and 24% on the remaining $67,500.
 
 ## Additional Reading
 
@@ -53,7 +53,7 @@ The rate on the left applies to income from that row to the one beneath it. For 
 - [What’s your AGI? (CNN Money)](http://money.cnn.com/tmp/networth2.html)
 - [How To Calculate AGI For Tax Purposes (Investopedia)](http://www.investopedia.com/financial-edge/0312/how-to-calculate-agi-for-tax-purposes.aspx)
 - [The AMT Exemption (AMT Advisor)](http://amtadvisor.com/AMT_Exemption.html)
-- [Federal Income Tax Rates for the Year 2016 (The Balance)](https://www.thebalance.com/federal-income-tax-rates-for-the-year-2016-3193200)
+- [2018 Tax Brackets (Tax Foundation)](https://taxfoundation.org/2018-tax-brackets/)
 
 ## License
 
