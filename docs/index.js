@@ -114,7 +114,7 @@
 		tax += (inc - ord[keys[i]]) * num(keys[i]) / 100
 		i--;
 		while (i >= 0) {
-			tax += ord[keys[i + 1]] * num(keys[i]) / 100
+			tax += (ord[keys[i + 1]] - ord[keys[i]]) * num(keys[i]) / 100
 			i--;
 		}
 
